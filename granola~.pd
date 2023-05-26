@@ -1,4 +1,4 @@
-#N canvas 685 52 679 692 12;
+#N canvas 685 77 679 670 12;
 #N canvas 686 35 677 708 adsr 0;
 #X msg 292 72 legato \$1;
 #X msg 222 72 rel \$1;
@@ -1216,7 +1216,7 @@ de unidad;
 #X connect 5 0 2 0;
 #X restore 230 200 pd out gain;
 #X obj 212 239 *~;
-#N canvas 914 35 449 708 midi-input 0;
+#N canvas 913 77 451 670 midi-input 0;
 #X obj 93 362 outlet;
 #X obj 93 163 - 1;
 #X obj 93 193 pack 0 0 0;
@@ -1274,7 +1274,6 @@ global o last_note respectivamente;
 #X obj 223 163 * 2;
 #X obj 475 352 s \$0-bendMode-r;
 #X obj 422 143 r \$0-bendMode;
-#X obj 93 138 poly 6 1, f 10;
 #X obj 195 38 loadbang;
 #X obj 195 63 t b b;
 #X msg 195 88 1;
@@ -1283,6 +1282,7 @@ global o last_note respectivamente;
 #X obj 177 138 *;
 #X obj 177 163 - 0.5;
 #X obj 177 193 *, f 7;
+#X obj 93 138 poly 3 1, f 10;
 #X connect 1 0 2 0;
 #X connect 1 0 4 0;
 #X connect 2 0 13 0;
@@ -1312,28 +1312,28 @@ global o last_note respectivamente;
 #X connect 19 1 13 1;
 #X connect 23 0 32 0;
 #X connect 24 0 23 0;
-#X connect 25 0 40 0;
+#X connect 25 0 39 0;
 #X connect 25 1 10 0;
-#X connect 25 1 34 0;
-#X connect 26 0 34 1;
+#X connect 25 1 42 0;
+#X connect 26 0 42 1;
 #X connect 28 0 24 0;
 #X connect 29 0 24 0;
 #X connect 30 0 31 0;
-#X connect 31 0 42 1;
+#X connect 31 0 41 1;
 #X connect 33 0 8 0;
-#X connect 34 0 1 0;
-#X connect 34 1 2 1;
-#X connect 34 2 2 2;
-#X connect 34 2 4 1;
+#X connect 34 0 35 0;
 #X connect 35 0 36 0;
-#X connect 36 0 37 0;
-#X connect 36 1 38 0;
-#X connect 37 0 39 0;
+#X connect 35 1 37 0;
+#X connect 36 0 38 0;
+#X connect 37 0 38 1;
 #X connect 38 0 39 1;
-#X connect 39 0 40 1;
+#X connect 39 0 40 0;
 #X connect 40 0 41 0;
-#X connect 41 0 42 0;
-#X connect 42 0 9 0;
+#X connect 41 0 9 0;
+#X connect 42 0 1 0;
+#X connect 42 1 2 1;
+#X connect 42 2 2 2;
+#X connect 42 2 4 1;
 #X restore 12 159 pd midi-input;
 #N canvas 686 35 677 708 voices 0;
 #X msg 12 122 1;
@@ -2274,9 +2274,9 @@ nombres de las tablas y asi los granos pueden leer de ellas;
 #X obj 451 147 cnv 15 392 286 empty \$0-text empty 20 12 0 14 -262144
 -1 0;
 #X obj 566 216 hsl 199 10 0 99.9999 0 0 \$0-playhead \$0-playhead-r
-empty -2 -8 0 10 -1 -262144 -1 0 0;
+empty -2 -8 0 10 -1 -262144 -1 4400 0;
 #X obj 456 208 nbx 5 15 1 1e+37 0 0 \$0-grain-rate \$0-grain-rate-r
-rate 0 -8 0 10 -1 -262144 -1 100 256;
+rate 0 -8 0 10 -1 -262144 -1 116 256;
 #X obj 500 198 hradio 10 1 0 2 \$0-grain-rate-unit \$0-grain-rate-unit-r
 ms 13 18 0 10 -262144 -1 -1 0;
 #X obj 477 282 cnv 15 30 6 empty \$0-text envelope: 1 2 0 10 -262144
@@ -2284,14 +2284,14 @@ ms 13 18 0 10 -262144 -1 -1 0;
 #X obj 456 295 cnv 15 15 15 empty \$0-text att 0 6 0 10 -262144 -1
 0;
 #X obj 563 256 tgl 10 0 \$0-playhead-reset \$0-playhead-reset-r reset_on_note
-15 4 0 10 -1 -262144 -1 0 1;
+15 4 0 10 -1 -262144 -1 1 1;
 #X obj 563 292 cnv 2 275 1 empty \$0-bar empty 20 12 0 14 -1 -1 0;
 #N canvas 0 50 450 250 (subpatch) 0;
 #X array \$0-win 128 float 4;
 #X coords 0 1 127 0 60 30 1 0 0;
 #X restore 778 256 graph;
 #X obj 670 271 nbx 3 15 -1e+37 1e+37 0 0 \$0-sample-note \$0-sample-note-r
-note 41 7 0 10 -1 -262144 -1 48 256;
+note 41 7 0 10 -1 -262144 -1 96 256;
 #X obj 727 152 bng 10 250 50 0 \$0-load-sample empty load 15 4 0 10
 -262144 -1 -1;
 #X obj 556 152 cnv 2 1 276 empty \$0-bar empty 20 12 0 14 -1 -1 0;
@@ -2299,11 +2299,11 @@ note 41 7 0 10 -1 -262144 -1 48 256;
 -262144 -1 0 1;
 #X obj 456 408 hradio 10 1 0 2 \$0-bendMode \$0-bendMode-r bend:_global
 25 4 0 10 -262144 -1 -1 0;
-#X obj 456 393 hradio 10 1 0 2 \$0-poly \$0-poly-r mono 25 4 0 10 -262144
--1 -1 0;
+#X obj 456 393 hradio 10 1 0 2 \$0-poly \$0-poly-r poly 25 4 0 10 -262144
+-1 -1 1;
 #X obj 456 274 cnv 2 95 1 empty \$0-bar empty 20 12 0 14 -1 -1 0;
 #X obj 661 256 tgl 10 0 \$0-play \$0-play-r play 15 4 0 10 -1 -262144
--1 0 1;
+-1 1 1;
 #X obj 778 191 bng 10 250 50 0 \$0-load-window empty load 15 4 0 10
 -262144 -1 -1;
 #X obj 456 228 tgl 10 0 \$0-grain-auto \$0-grain-auto-r auto-trigger
@@ -2330,9 +2330,9 @@ ms 13 18 0 10 -262144 -1 -1 0;
 -1 0;
 #X obj 772 152 cnv 2 1 134 empty \$0-bar empty 20 12 0 14 -1 -1 0;
 #X obj 456 178 nbx 5 15 1 1e+37 0 0 \$0-grain-duration \$0-grain-duration-r
-durat. 0 -8 0 10 -1 -262144 -1 300 256;
-#X obj 778 165 hradio 10 1 0 6 \$0-window-sel \$0-window-sel-r straight
-0 17 0 10 -262144 -1 -1 0;
+durat. 0 -8 0 10 -1 -262144 -1 845 256;
+#X obj 778 165 hradio 10 1 0 6 \$0-window-sel \$0-window-sel-r up 0
+17 0 10 -262144 -1 -1 4;
 #X obj 566 166 cnv 15 198 48 empty \$0-text empty 20 12 0 14 -262144
 -1 0;
 #N canvas 0 50 450 250 (subpatch) 0;
@@ -2340,37 +2340,37 @@ durat. 0 -8 0 10 -1 -262144 -1 300 256;
 #X coords 0 1 1024 -1 200 50 1 0 0;
 #X restore 565 165 graph;
 #X obj 778 206 tgl 10 0 \$0-fade-in \$0-fade-in-r fade-in 15 4 0 10
--1 -262144 -1 0 1;
+-1 -262144 -1 1 1;
 #X obj 565 151 cnv 12 90 12 empty \$0-text sample: 1 5 0 10 -262144
 -1 0;
 #X obj 12 189 clone ./voice~ 6, f 29;
-#X obj 456 258 hradio 10 1 0 3 \$0-grain-dir \$0-grain-dir-r forward
-35 5 0 10 -262144 -1 -1 0;
+#X obj 456 258 hradio 10 1 0 3 \$0-grain-dir \$0-grain-dir-r random
+35 5 0 10 -262144 -1 -1 2;
 #X obj 705 256 tgl 10 0 \$0-pingpong \$0-pingpong-r pingpong 15 4 0
-10 -1 -262144 -1 0 1;
+10 -1 -262144 -1 1 1;
 #X obj 566 231 hsl 199 10 0 100 0 0 \$0-loop-start \$0-loop-start-r
-empty -2 -8 0 10 -1 -262144 -1 0 0;
+empty -2 -8 0 10 -1 -262144 -1 4400 0;
 #X obj 566 241 hsl 199 10 0 100 0 0 \$0-loop-end \$0-loop-end-r empty
--2 -8 0 10 -1 -262144 -1 39600 0;
+-2 -8 0 10 -1 -262144 -1 14500 0;
 #X obj 577 301 cnv 15 30 6 empty \$0-text playhead: -1 2 0 10 -262144
 -1 0;
 #X obj 571 326 nbx 5 15 -1e+37 1e+37 0 0 \$0-offset-playhead \$0-offset-playhead-r
-offset 0 -8 0 10 -1 -262144 -1 0 256;
+offset 0 -8 0 10 -1 -262144 -1 500 256;
 #X obj 571 358 nbx 3 15 0 100 0 0 \$0-offset-playhead-chance \$0-offset-playhead-chance-r
-chance 0 -8 0 10 -1 -262144 -1 0 256;
+chance 0 -8 0 10 -1 -262144 -1 100 256;
 #X obj 615 316 hradio 10 1 0 2 \$0-offset-playhead-unit \$0-offset-playhead-unit-r
 ms 13 18 0 10 -262144 -1 -1 0;
 #X obj 574 390 hsl 62 10 0 100 0 0 \$0-offset-playhead-precision \$0-offset-playhead-precision-r
 precision -2 -8 0 10 -1 -262144 -1 0 0;
 #X obj 612 363 cnv 15 10 6 empty \$0-text % 1 2 0 10 -262144 -1 0;
 #X obj 667 326 nbx 5 15 -1e+37 1e+37 0 0 \$0-offset-pitch \$0-offset-pitch-r
-offset 0 -8 0 10 -1 -262144 -1 0 256;
+offset 0 -8 0 10 -1 -262144 -1 12 256;
 #X obj 667 358 nbx 3 15 0 100 0 0 \$0-offset-pitch-chance \$0-offset-pitch-chance-r
-chance 0 -8 0 10 -1 -262144 -1 0 256;
+chance 0 -8 0 10 -1 -262144 -1 25 256;
 #X obj 711 316 hradio 10 1 0 2 \$0-offset-pitch-unit \$0-offset-pitch-unit-r
 m 13 18 0 10 -262144 -1 -1 0;
 #X obj 670 390 hsl 62 10 0 100 0 0 \$0-offset-pitch-precision \$0-offset-pitch-precision-r
-precision -2 -8 0 10 -1 -262144 -1 0 0;
+precision -2 -8 0 10 -1 -262144 -1 6100 0;
 #X obj 708 363 cnv 15 10 6 empty \$0-text % 1 2 0 10 -262144 -1 0;
 #X obj 763 326 nbx 5 15 -1e+37 1e+37 0 0 \$0-offset-duration \$0-offset-duration-r
 offset 0 -8 0 10 -1 -262144 -1 0 256;
@@ -2387,29 +2387,29 @@ precision -2 -8 0 10 -1 -262144 -1 0 0;
 #X obj 310 134 r \$0-trigger;
 #X obj 760 413 cnv 2 1 15 empty \$0-bar empty 20 12 0 14 -1 -1 0;
 #X obj 477 293 nbx 5 15 0 1e+37 0 0 \$0-att \$0-att-r ms 58 8 0 10
--1 -262144 -1 0 256;
+-1 -262144 -1 50 256;
 #X obj 477 313 nbx 5 15 0 1e+37 0 0 \$0-dec \$0-dec-r ms 58 8 0 10
--1 -262144 -1 0 256;
+-1 -262144 -1 350 256;
 #X obj 477 333 nbx 5 15 0 100 0 0 \$0-sus \$0-sus-r % 58 8 0 10 -1
--262144 -1 100 256;
+-262144 -1 70 256;
 #X obj 477 353 nbx 5 15 0 1e+37 0 0 \$0-rel \$0-rel-r ms 58 8 0 10
--1 -262144 -1 0 256;
+-1 -262144 -1 1750 256;
 #X obj 597 271 nbx 5 15 -1e+37 1e+37 0 0 \$0-speed \$0-speed-r % 58
-8 0 10 -1 -262144 -1 0 256;
+8 0 10 -1 -262144 -1 100 256;
 #X obj 571 415 cnv 15 15 15 empty \$0-text stereo 0 6 0 10 -262144
 -1 0;
 #X obj 611 413 nbx 3 15 0 100 0 0 \$0-stereo-amount \$0-stereo-amount-r
-% 41 8 0 10 -1 -262144 -1 0 256;
+% 41 8 0 10 -1 -262144 -1 25 256;
 #X obj 669 415 cnv 15 15 15 empty \$0-text chance 0 6 0 10 -262144
 -1 0;
 #X obj 709 413 nbx 3 15 0 100 0 0 \$0-stereo-chance \$0-stereo-chance-r
-% 41 8 0 10 -1 -262144 -1 0 256;
+% 41 8 0 10 -1 -262144 -1 75 256;
 #X obj 766 415 cnv 15 15 15 empty \$0-text out 0 6 0 10 -262144 -1
 0;
 #X obj 786 413 nbx 3 15 -100 12 0 0 \$0-out \$0-out-r dB 41 8 0 10
 -1 -262144 -1 0 256;
 #X obj 778 221 tgl 10 0 \$0-fade-out \$0-fade-out-r fade-out 15 4 0
-10 -1 -262144 -1 0 1;
+10 -1 -262144 -1 1 1;
 #X obj 778 240 cnv 14 65 14 empty \$0-text empty 20 12 0 14 -262144
 -1 0;
 #X obj 778 236 nbx 3 15 0 1e+37 0 0 \$0-fade-time \$0-fade-time-r ms
@@ -2704,7 +2704,7 @@ a las instancias de los granos;
 #X connect 25 1 26 0;
 #X connect 26 1 11 0;
 #X restore 147 634 pd playhead-vis;
-#X obj 565 217 cnv 1 1 7 empty \$0-playhead-vis empty 20 12 0 14 -262144
+#X obj 691 217 cnv 1 1 7 empty \$0-playhead-vis empty 20 12 0 14 -262144
 -66577 0;
 #X connect 5 0 14 0;
 #X connect 6 0 5 1;
